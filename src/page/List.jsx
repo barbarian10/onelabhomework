@@ -1,7 +1,5 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import styled from "styled-components";
-import Person from "../components/Person";
 import { Center } from "../styles/Center"
 import Table from "../components/Table/Table";
 

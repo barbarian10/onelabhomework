@@ -57,11 +57,7 @@ width: 700px;
 `;
 
 const TableMarkup = ({ titles, data, onDeleteRow, onEdit, onSave, editedRowIndex, setEditedRowIndex }) => {
-  const handleEdit = (rowIndex, field, value) => {
-    onEdit(rowIndex, field, value);
-    setEditedRowIndex(null); // Reset the editing state
-  };
-
+  
   const handleSave = (rowIndex) => {
     onSave(rowIndex);
     setEditedRowIndex(null);
