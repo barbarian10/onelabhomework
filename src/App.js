@@ -1,34 +1,34 @@
 import './App.css';
-import { createBrowserRouter, RouterProvider, BrowserRouter, Route, Routes } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './page/Home';
-import Add from './page/Add';
-import List from './page/List';
+import EnhancedTable from './page/Table';
+import ButtonAppBar from './page/Header';
+import { Outlet } from "react-router-dom";
 
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <ButtonAppBar />,
+    children: [
+      {
+        path: "/",
+        element: <Home />
+      },
+      {
+        path: "/table",
+        element: <EnhancedTable />
+      },
+    
+    ]
+  },
+])
 function App() {
-
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Home/>
-    },
-    {
-      path: "/add",
-      element: <Add/>
-    },
-    {
-      path: "/list",
-      element: <List/>
-    }
-  ])
-
   return (
     <div className="App">
-      <RouterProvider router={router}/>
-      {/* <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<div>Root page</div>}/>
-        </Routes>
-      </BrowserRouter> */}
+      <RouterProvider router={router}>
+        <Outlet />
+      </RouterProvider>
     </div>
   );
 }
